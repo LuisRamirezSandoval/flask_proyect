@@ -1,0 +1,30 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.container-fluid{
+    background: 
+    #8BC34A;
+    margin-top: -12px;
+    padding: 10px;
+}
+img{
+    width: 600px;
+    height: 350px;
+    align-content: center;
+}
+#contenido{
+    height: 700px;
+}
+#contenido_sesion{
+    height: 500px;
+}
+footer{
+    position:relative;
+    bottom: 0;
+    width: 100%;
+    padding: 1em;
+    margin-bottom: -100px;
+    clear: both;
+    align-self: flex-end;
+}

@@ -1,0 +1,43 @@
+{% extends './layout.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+<div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages%}
+    {% for message in messages %}
+    {% for i in consulta %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{message}}
+        <strong>Consulta Exitosa!</strong> Fecha: {{i.0}} Hora {{i.1}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+      <p></p>
+      <h2>Generar Consulta</h2>
+      <p></p>
+    <form action="/add_consulta" method="POST"> 
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nombre del Servicio</label>
+        <input type="text" class="form-control" name="servicio" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nombre Completo</label>
+        <input type="text" class="form-control" name = "nombre" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Correo</label>
+            <input type="email" class="form-control" name = "email" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <p></p>
+        <p></p>
+        <p></p>
+    </form>
+</div>
+{% endblock %}

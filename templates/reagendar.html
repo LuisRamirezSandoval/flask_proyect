@@ -1,0 +1,75 @@
+{% extends './layout.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+{% with messages = get_flashed_messages() %}
+    {% if messages%}
+    {% for message in messages %}
+
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{message}}
+        <strong>Cita Reagenda!</strong> Se reageagendo de manera exitosa
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+<form class="row g-3" action="/add_reagendar" method="POST">
+    <h1>Reagendar Cita</h1>
+    <div class="col-md-7">
+      <label for="validationDefault01" class="form-label">Nombre</label>
+      <input type="text" name="name" class="form-control" id="validationDefault01" value="" required>
+      
+    </div>
+    <div class="col-md-7">
+      <label for="validationDefault02" class="form-label">Apellido Paterno</label>
+      <input type="text" name='apellido_paterno' class="form-control" id="validationDefault02" value="" required>
+    </div>
+    <div class="col-md-7">
+      <label for="validationDefault03" class="form-label">Apellido Materno</label>
+      <input type="text" name='apellido_materno' class="form-control" id="validationDefault03" value="" required>
+    </div>
+    <div class="col-md-7">
+      <label for="validationDefaultUsername" class="form-label">Correo</label>
+      <div class="input-group">
+        <span class="input-group-text" id="inputGroupPrepend2">@</span>
+        <input type="text" name='email' class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <label for="validationDefault07" class="form-label">Hora</label>
+      <select class="form-select" name='hora' id="validationDefault07" required>
+        <option selected disabled value="">Escoge...</option>
+        <option>7:00 am</option>
+        <option>9:00 am</option>
+        <option>11:00 am</option>
+        <option>1:00 pm</option>
+        <option>3:00 pm</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="validationDefault08" class="form-label">Fecha</label>
+      <select class="form-select" name='fecha' id="validationDefault08" required>
+        <option selected disabled value="">Escoge...</option>
+        <option>2021-11-20</option>
+        <option>2021-11-25</option>
+        <option>2021-12-01</option>
+        <option>2021-12-10</option>
+        <option>2021-12-20</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+        <label class="form-check-label" for="invalidCheck2">
+          Acepto terminos y condiciones.
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </div>
+  </form>
+{% endblock %}

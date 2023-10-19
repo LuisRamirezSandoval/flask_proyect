@@ -1,0 +1,27 @@
+{% extends './layout.html' %}
+
+{% block title %} Servicios {% endblock %}
+
+{% block body %}
+<h2>Lista de Servicios</h2>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Servicio</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Admi</th>
+          </tr>
+    </thead>
+    <tbody>
+      {% for ser in servicio%}
+        <tr>
+            <th scope="row">{{ser.0}}</th>
+            <td>{{ser.1}}</td>
+            <td>{{ser.2}}</td>
+            <td>{{ser.3}}</td>
+          </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

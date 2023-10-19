@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css')}}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">Dating System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Inicio</a>
+              </li>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('sesion')}}">Cerrar Sesion</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <div class="container">
+        
+        {% with messages = get_flashed_messages() %}
+        {% if messages%}
+        {% for message in messages %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+            <strong>Cita Agendada!</strong> La cita se agendo correctamente.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+          <p></p>
+          <h2>Agendar Servicio</h2>
+          <p></p>
+          <form class="row g-3" action="/agendar_servicio" method="POST">
+            <div class="col-md-7">
+              <label for="validationDefault01" class="form-label">Nombre</label>
+              <input type="text" name="name" class="form-control" id="validationDefault01" value="" required>
+              
+            </div>
+            <div class="col-md-7">
+              <label for="validationDefault02" class="form-label">Apellido Paterno</label>
+              <input type="text" name='apellido_paterno' class="form-control" id="validationDefault02" value="" required>
+            </div>
+            <div class="col-md-7">
+              <label for="validationDefault03" class="form-label">Apellido Materno</label>
+              <input type="text" name='apellido_materno' class="form-control" id="validationDefault03" value="" required>
+            </div>
+            <div class="col-md-7">
+              <label for="validationDefaultUsername" class="form-label">Correo</label>
+              <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                <input type="text" name='email' class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <label for="validationDefault04" class="form-label">Fecha de Nacimiento</label>
+              <input type="text" name='date' class="form-control" id="validationDefault04" required>
+            </div>
+            <div class="col-md-3">
+              <label for="validationDefault05" class="form-label">Servicio</label>
+              <select class="form-select" name='servicio' id="validationDefault05" required>
+                <option selected disabled value="">Escoge...</option>
+                <option>Ultrasonido</option>
+                <option>Rayos X</option>
+                <option>Mastografia</option>
+                <option>Tomografia</option>
+                <option>Resonancia Magnetica</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="validationDefault06" class="form-label">Telefono</label>
+              <input type="text" name='tel' class="form-control" id="validationDefault06" required>
+            </div>
+            <div class="col-md-2">
+              <label for="validationDefault07" class="form-label">Hora</label>
+              <select class="form-select" name='hora' id="validationDefault07" required>
+                <option selected disabled value="">Escoge...</option>
+                <option>7:00 am</option>
+                <option>9:00 am</option>
+                <option>11:00 am</option>
+                <option>1:00 pm</option>
+                <option>3:00 pm</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="validationDefault08" class="form-label">Fecha</label>
+              <select class="form-select" name='fecha' id="validationDefault08" required>
+                <option selected disabled value="">Escoge...</option>
+                <option>2021-11-20 00:00:00</option>
+                <option>2021-11-25 00:00:00</option>
+                <option>2021-12-01 00:00:00</option>
+                <option>2021-12-10 00:00:00</option>
+                <option>2021-12-20 00:00:00</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                  Acepto terminos y condiciones.
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+          </form>
+          <p></p>
+    </div>
+      <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Form -->
+          <section class="">
+            <form action="">
+              <!--Grid row-->
+              <div class="row d-flex justify-content-center">
+                <!--Grid column-->
+                <div class="col-auto">
+                  <p class="pt-2">
+                    <strong>Sign up for our newsletter</strong>
+                  </p>
+                </div>
+                <!--Grid column-->
+      
+                <!--Grid column-->
+                <div class="col-md-5 col-12">
+                  <!-- Email input -->
+                  <div class="form-outline form-white mb-4">
+                    <input type="email" id="form5Example29" class="form-control" />
+                    <label class="form-label" for="form5Example29">Email address</label>
+                  </div>
+                </div>
+                <!--Grid column-->
+      
+                <!--Grid column-->
+                <div class="col-auto">
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-outline-light mb-4">
+                    Subscribe
+                  </button>
+                </div>
+                <!--Grid column-->
+              </div>
+              <!--Grid row-->
+            </form>
+          </section>
+          <!-- Section: Form -->
+        </div>
+        <!-- Grid container -->
+        <p></p>
+        <p>
+        </p>
+        <!-- Copyright -->
+        <div class="text-center p-3" >
+          © 2020 Copyright:
+          <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+  
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+      
+</body>
+</html>

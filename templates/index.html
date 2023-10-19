@@ -1,0 +1,58 @@
+{% extends './layout.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+<div class="card mb-3">
+    <img src="../static/img/img3.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">¿Que es Dating System?</h5>
+      <p class="card-text">Dating System es una plataforma donde se pueden agendar citas para una clinica de servicios medicos, con la finalidad
+        de ofrecer a los pacientes una mayor facilidad a la hora de agendar una cita, cancelar, reagendar, etc. Sin necesidad de acudir a una clinica.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <img src="../static/img/img.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a action= "/registrar" href="/registrar" class="nav-link" >Agenda</a>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="../static/img/img2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a class="nav-link" href="/consultar">Consulta</a>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="../static/img/img4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a class="nav-link" href="/reagendar">Reagenda</a>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<!--
+<div id="contenido">
+    <h1>¿Que es Dating System?</h1>
+    <p></p>
+    <p>Dating System es una plataforma donde se pueden agendar citas para una clinica de servicios medicos, con la finalidad
+        de ofrecer a los pacientes una mayor
+    </p><p>facilidad a la hora de agendar una cita, cancelar, reagendar, etc. Sin necesidad de acudir a una clinica.</p>
+    <img src="../static/img/img.jpg" class="rounded mx-auto d-block" alt="...">
+    <p>     </p>
+    <p></p>
+</div>
+-->
+{% endblock %}
